@@ -15,6 +15,7 @@ import { createDotEnvModule } from "./create-dotenv";
 import { createSeedModule } from "./seed/create-seed";
 import { BASE_DIRECTORY, SRC_DIRECTORY } from "./constants";
 import { createAuthModules } from "./auth/createAuth";
+import { CUSTOM_BASE_DIRECTORY } from "../base";
 
 const STATIC_DIRECTORY = path.resolve(__dirname, "static");
 
@@ -33,7 +34,7 @@ export async function createServerModules(
     BASE_DIRECTORY
   );
   const staticModules = updatePackageJSONs(rawStaticModules, BASE_DIRECTORY, {
-    name: `@${paramCase(appInfo.name)}/server`,
+    name: `@${paramCase(appInfo.name)}/${CUSTOM_BASE_DIRECTORY}/server`,
     version: appInfo.version,
   });
 

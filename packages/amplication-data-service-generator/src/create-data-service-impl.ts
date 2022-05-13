@@ -21,9 +21,10 @@ import { readStaticModules } from "./read-static-modules";
 import { types } from "@amplication/data";
 import pluralize from "pluralize";
 import { camelCase } from "camel-case";
+import { CUSTOM_BASE_DIRECTORY } from "./base";
 
 const STATIC_DIRECTORY = path.resolve(__dirname, "static");
-const BASE_DIRECTORY = "";
+const BASE_DIRECTORY = CUSTOM_BASE_DIRECTORY;
 
 export async function createDataServiceImpl(
   entities: Entity[],

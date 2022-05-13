@@ -22,6 +22,7 @@ import { createEntityToDirectory } from "./create-entity-to-directory";
 import { createEnumRolesModule } from "./create-enum-roles";
 import { createRolesModule } from "./create-roles-module";
 import { createDotEnvModule } from "./create-dotenv";
+import { CUSTOM_BASE_DIRECTORY } from "../base";
 
 const STATIC_MODULES_PATH = path.join(__dirname, "static");
 const API_PATHNAME = "/api";
@@ -43,7 +44,7 @@ export async function createAdminModules(
     BASE_DIRECTORY
   );
   const staticModules = updatePackageJSONs(rawStaticModules, BASE_DIRECTORY, {
-    name: `@${paramCase(appInfo.name)}/admin`,
+    name: `@${paramCase(appInfo.name)}/${CUSTOM_BASE_DIRECTORY}/admin`,
     version: appInfo.version,
   });
 

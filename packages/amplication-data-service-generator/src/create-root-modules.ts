@@ -3,6 +3,7 @@ import { Module, AppGenerationConfig, AppInfo } from "./types";
 import { version } from "./version";
 import { formatJson } from "./util/module";
 import { createDotEnvModule } from "./create-dotenv";
+import { CUSTOM_BASE_DIRECTORY } from "./base";
 
 const AMP_CONFIG_FILE_NAME = "ampconfig.json";
 
@@ -28,7 +29,7 @@ async function createAmplicationConfigurationFile(
   };
 
   return {
-    path: `${AMP_CONFIG_FILE_NAME}`,
+    path: `${CUSTOM_BASE_DIRECTORY}/${AMP_CONFIG_FILE_NAME}`,
     code: formatJson(JSON.stringify(config)),
   };
 }
